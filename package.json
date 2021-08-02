@@ -1,0 +1,14 @@
+{
+  "name": "teste-youtube",
+  "version": "1.0.0",
+  "description": "Teste ahgora",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "keywords": [
+    "youtube-teste"
+  ],
+  "author": "Bruno Rodrigues do nascimento",
+  "license": "ISC"
+}
