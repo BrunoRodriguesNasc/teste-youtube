@@ -1,8 +1,7 @@
 
-
 const request = (params, part) => {
   return fetch(
-    `https://www.googleapis.com/youtube/v3/search?${part}&key=AIzaSyBFCFt_E5s7JM1JCFSoGgTq7Mm-1EJ41E0&${params}&maxResults=10`
+    `https://www.googleapis.com/youtube/v3/search&key={}&${params}&maxResults=10`
   );
 };
 
@@ -24,14 +23,13 @@ async function getAllVideosById(videos) {
 }
 
 export default async function searchVideos(title) {
-  // const response = await request(`&q=${title}`, "part=snippet");
-  // const videos = await response.json();
-  // return getAllVideosById(videos);
-  console.log(title);
+  const response = await request(`&q=${title}`, "part=snippet");
+  const videos = await response.json();
+  return getAllVideosById(videos);
 }
 
 async function getAllInfoVideos(videoId) {
   const infoVideos = await Promise.all(videoId);
   console.log(infoVideos);
 }
-
+// https://youtube.googleapis.com/youtube/v3/videos?part=contentDetails&id=L6iiw88JUOQ&maxResults=200&key=[YOUR_API_KEY] HTTP/1.1

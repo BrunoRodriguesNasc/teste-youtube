@@ -1,4 +1,4 @@
-import inicialize from '../components/form.js'
+import inicialize from '../../frontend/components/form.js'
 import searchVideos from '../model/model.js'
 
 
