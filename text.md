@@ -30,10 +30,3 @@ Nós realmente apreciamos seu tempo resolvendo este desafio e esperamos vê-lo e
 Open in Google Translate
 •
 Feedback
-
-AIzaSyBdX_gdy4T2sSavK6CA_PdN3VYgGf7jraA
-
-YAhlqAfy4aVtO9IBMV-JFWeq
-888069977670-lkaqeabkk21v121b2ihk6ua1shbq1rs4.apps.googleusercontent.com
-
-https://www.googleapis.com/youtube/v3/search?part=snippet&key=AIzaSyBFCFt_E5s7JM1JCFSoGgTq7Mm-1EJ41E0&maxResults=1&q=YouTube%20Data%20API%20v3%20Tutorial
