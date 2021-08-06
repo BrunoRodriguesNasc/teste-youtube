@@ -1,35 +1,44 @@
-
-const request = (params, part) => {
-  return fetch(
-    `https://www.googleapis.com/youtube/v3/search&key={}&${params}&maxResults=10`
+async function request(params, part, type) {
+  let response = await fetch(
+    `https://www.googleapis.com/youtube/v3/${type}?${part}&key=AIzaSyBFCFt_E5s7JM1JCFSoGgTq7Mm-1EJ41E0&${params}&maxResults=10`
   );
-};
+  return response.json();
+}
 
-async function getAllVideosById(videos) {
+export async function getAllVideosById(videos) {
   try {
-    const allVideosId = videos.items.map(({ id }) => {
-      if (!id.videoId) {
-        console.log(id);
-        return request(`id=${id.channelId}`, "part=contentDetails");
+    const allVideosId = videos.items.map(async (item) => {
+      if (!item.id.videoId) {
+        return await request(
+          `id=${item.id.channelId}`,
+          "part=contentDetails",
+          "videos"
+        );
       }
-      console.log(id.videoId);
-      return request(`id=${id.videoId}`, "part=contentDetails");
+      return await request(
+        `id=${item.id.videoId}`,
+        "part=contentDetails",
+        "videos"
+      );
     });
 
-    return getAllInfoVideos(allVideosId);
+    const videosPerId = await Promise.all(allVideosId);
+    return videosPerId;
   } catch (error) {
     console.log(error);
   }
 }
 
-export default async function searchVideos(title) {
-  const response = await request(`&q=${title}`, "part=snippet");
-  const videos = await response.json();
-  return getAllVideosById(videos);
+export async function searchVideos(title) {
+  const response = await request(`&q=${title}`, "part=snippet", "search");
+  return response;
 }
 
-async function getAllInfoVideos(videoId) {
+export async function getAllInfoVideos(videoId) {
   const infoVideos = await Promise.all(videoId);
-  console.log(infoVideos);
+  const itemsVideos = infoVideos.map((item) => {
+    return item.items;
+  });
+  return itemsVideos;
 }
 // https://youtube.googleapis.com/youtube/v3/videos?part=contentDetails&id=L6iiw88JUOQ&maxResults=200&key=[YOUR_API_KEY] HTTP/1.1

@@ -11,5 +11,4 @@ export default async function (searchVideos) {
     }
     await searchVideos(video.value);
   });
-  
 }
