@@ -10,6 +10,7 @@ export default {
     controller: "./backend/controller/controller.js",
     model: "./backend/model/model.js",
     component: "./frontend/components/form.js",
+    filterWords: "./backend/utils/filterWords.js",
   },
   output: {
     path: __dirname + "/dist",
