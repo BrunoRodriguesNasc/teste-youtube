@@ -3,18 +3,6 @@ export default async function (getVideo) {
   const video = document.querySelector("#video");
   let allDays = [];
 
-  let durations = [
-    "0:30:30",
-    "0:20:30",
-    "0:30:30",
-    "0:40:30",
-    "0:50:30",
-    "0:20:30",
-    "0:30:30",
-    "0:30:30",
-    "1:10:30",
-  ];
-
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
     allDays = [];
@@ -22,6 +10,6 @@ export default async function (getVideo) {
       allDays.push(document.querySelector(`#day-${i}`).value);
     }
     // await searchVideos(video.value);
-    getVideo(durations, allDays);
+    getVideo(video.value, allDays);
   });
 }

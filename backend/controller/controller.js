@@ -8,37 +8,40 @@ import durationVideoInfo from "../../frontend/components/durationVideo.js";
 import filterVideos from "../utils/filterVideos.js";
 import filterWords from "../utils/filterWords.js";
 import mostWord from "../../frontend/components/mostWords.js";
-
-let words = [
-  `Lorem, ipsum dolor sit amet consectetur adipisicing elit. Distinctio,
-eum suscipit maiores impedit magni debitis aperiam hic facilis sequi
-voluptatum dolores! Possimus tempore ex aliquid dolores similique rerum
-blanditiis saepe! Lorem, ipsum dolor sit amet consectetur adipisicing
-elit. Distinctio, eum suscipit maiores impedit magni debitis aperiam hic
-facilis sequi voluptatum dolores! Possimus tempore ex aliquid dolores
-similique rerum blanditiis saepe! Lorem, ipsum dolor sit amet
-consectetur adipisicing elit. Distinctio, eum suscipit maiores impedit
-magni debitis aperiam hic facilis sequi voluptatum dolores! Possimus
-tempore ex aliquid dolores similique rerum blanditiis saepe!`,
-];
+import test from "../../test.json";
 
 export function init() {
   inicialize(getVideos);
 }
 
+const obj = test.items;
+
 async function getVideos(video, allDays) {
   // const allVideos = await searchVideos(video);
   // const videosID = await getAllVideosById(allVideos);
-  // const itens = await getAllInfoVideos(videosID);
-  // const convertedTime = itens.map((duration) => {
-  //   return timeConverter(duration[0].contentDetails.duration);
+  // const infoVideos = videosID.map((id) => {
+  //   return id.items[0].id;
   // });
-  // setTimeTotal(convertedTime, allDays);
-  setMostWord(words);
+  // const words = await searchVideos(infoVideos, false);
+  // const itens = await getAllInfoVideos(videosID);
+
+  // const convertedTime = itens.map((duration) => {
+  //   let content = duration[0].contentDetails ? duration[0].contentDetails : [];
+
+  //   return timeConverter(content);
+  // });
+
+  const titleAndDescription = obj.map((item) => {
+    return [item.snippet.title, item.snippet.description];
+  });
+
+  setMostWord(titleAndDescription);
+  // return setTimeTotal(convertedTime, allDays);
 }
 
 async function setTimeTotal(convertedTime, days) {
   const filterDuration = filterVideos(convertedTime, days);
+
   const totalDias = await calcTimeTotal(filterDuration, days);
   durationVideoInfo(totalDias);
 }

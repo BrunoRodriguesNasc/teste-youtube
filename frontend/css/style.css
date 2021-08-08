@@ -36,9 +36,10 @@ label {
 .input-days {
   width: 230px;
   height: 44px;
-  background: #685a5a;
-  opacity: 0.1;
-  border: 1px solid #000000;
+  background: #d9d8c8;
+  outline: none;
+  border: none;
+  color: #686868;
   box-sizing: border-box;
   border-radius: 10px;
 }
@@ -111,4 +112,12 @@ h2 {
   color: black;
   font-size: 20px;
   text-align: start;
+}
+
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
 }
