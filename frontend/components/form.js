@@ -1,5 +1,5 @@
 export default async function (getVideo) {
-  const form = document.querySelector(".container");
+  const form = document.querySelector(".form-type");
   const video = document.querySelector("#video");
   let allDays = [];
 

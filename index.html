@@ -8,40 +8,59 @@
     <title>teste-youtube</title>
   </head>
   <body>
-    <header>
-      <h1 class="title">Teste youtube</h1>
-    </header>
     <main>
       <section>
         <article>
-          <form class="container">
-            <label for="video">Digite o nome do video</label>
-            <input id="video" type="text" />
-            <label for="day-1">Segunda-Feira</label>
-            <input id="day-1" max="1440" type="number" />
-
-            <label for="day-2">Terça-Feira</label>
-            <input id="day-2" max="1440" type="number" />
-
-            <label for="day-3">Quarta-Feira</label>
-            <input id="day-3" max="1440" type="number" />
-
-            <label for="day-4">Quinta-Feira</label>
-            <input id="day-4" max="1440" type="number" />
-
-            <label for="day-5">Sexta-Feira</label>
-            <input id="day-5" max="1440" type="number" />
-
-            <label for="day-6">Sábado</label>
-            <input id="day-6" max="1440" type="number" />
-
-            <label for="day-7">Domingo</label>
-            <input id="day-7" max="1440" type="number" />
-            <div>
-              <button class="btn-submit">Enviar</button>
-            </div>
+          <form class="form-type">
+            <input
+              placeholder="Digite o nome do video"
+              id="video"
+              type="text"
+            />
+            <button>Buscar</button>
           </form>
         </article>
+      </section>
+      <section class="section_days">
+        <article class="article_days">
+          <form class="container">
+            <label for="day-1"
+              >Segunda-Feira
+              <input class="input-days" id="day-1" max="1440" type="number"
+            /></label>
+
+            <label for="day-2"
+              >Terça-Feira
+              <input class="input-days" id="day-2" max="1440" type="number"
+            /></label>
+
+            <label for="day-3"
+              >Quarta-Feira
+              <input class="input-days" id="day-3" max="1440" type="number"
+            /></label>
+
+            <label for="day-4"
+              >Quinta-Feira
+              <input class="input-days" id="day-4" max="1440" type="number"
+            /></label>
+
+            <label for="day-5"
+              >Sexta-Feira
+              <input class="input-days" id="day-5" max="1440" type="number"
+            /></label>
+
+            <label for="day-6"
+              >Sábado
+              <input class="input-days" id="day-6" max="1440" type="number"
+            /></label>
+
+            <label for="day-7"
+              >Domingo
+              <input class="input-days" id="day-7" max="1440" type="number"
+            /></label>
+          </form>
+        </article>
+        <aside class="container-text"></aside>
       </section>
     </main>
   </body>

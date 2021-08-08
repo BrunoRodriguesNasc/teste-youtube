@@ -1,28 +1,114 @@
-main{
-    display: flex;
-    flex-direction: column;
-    padding: 19px;
-    margin-bottom: 20px;
-    max-width: 400px;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;1,100;1,200;1,300&display=swap");
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-family: "Poppins", sans-serif;
 }
 
-input{
-    margin-bottom: 20px;
+.section_days {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 30px;
 }
 
-button{
-    max-width: 100px;
-    display: flex;
-    justify-content: center;
+.article_days {
+  height: 729px;
+  display: flex;
 }
 
-.container{
-    display: flex;
-    flex-direction: column;
-    min-height: 500px;
+main {
+  display: flex;
+  flex-direction: column;
+  padding: 19px;
+  margin-bottom: 20px;
+  width: 800px;
+  background-color: rgb(233, 232, 213);
 }
 
-div{
-    display: flex;
-    justify-content: center;
+label {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-days {
+  width: 230px;
+  height: 44px;
+  background: #685a5a;
+  opacity: 0.1;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+
+button {
+  max-width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0px 10px 10px 0px;
+  background: #686868;
+  color: white;
+  opacity: 1;
+  border: none;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+div {
+  display: flex;
+  justify-content: center;
+}
+
+.form-type {
+  display: flex;
+  justify-content: center;
+}
+
+.container-text {
+  width: 453px;
+  height: 710px;
+  margin-top: 18px;
+  background: #d9d8c8;
+  box-sizing: border-box;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.input-days:focus {
+  background-color: white;
+}
+
+#video {
+  width: 85%;
+  background: #d9d8c8;
+  box-sizing: border-box;
+  border-radius: 10px 0px 0px 10px;
+  color: black;
+  padding: 10px;
+  border: none;
+  outline: none;
+}
+
+#video:focus {
+  background: white;
+  transition: 0.3s ease;
+}
+
+.form-type {
+  height: 57px;
+}
+
+h2 {
+  color: black;
+  font-size: 20px;
+  text-align: start;
 }
