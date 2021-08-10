@@ -1,5 +1,6 @@
 export default function (totalDays) {
-  document.body.innerHTML += `
+  const containerText = document.body.querySelector(".container-text");
+  containerText.innerHTML += `
     <h2 class="total_days">${totalDays} DIAS </h2>
     `;
 }

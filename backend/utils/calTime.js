@@ -1,4 +1,4 @@
-export default async function calcTimeTotal(duration, days) {
+export default async function calTime(duration, days) {
   let duracaoFaltando = 0;
   let diasVendoFilme = 0;
   let index = 0;

@@ -1,6 +1,6 @@
 async function request(params, part, type) {
   let response = await fetch(
-    `https://www.googleapis.com/youtube/v3/${type}?${part}&key=AIzaSyBFCFt_E5s7JM1JCFSoGgTq7Mm-1EJ41E0${params}&maxResults=1`
+    `https://www.googleapis.com/youtube/v3/${type}?${part}&key=AIzaSyBFCFt_E5s7JM1JCFSoGgTq7Mm-1EJ41E0${params}`
   );
   return response.json();
 }
@@ -10,13 +10,13 @@ export async function getAllVideosById(videos) {
     const allVideosId = videos.items.map(async (item) => {
       if (!item.id.videoId) {
         return await request(
-          `id=${item.id.channelId}`,
+          `&id=${item.id.channelId}`,
           "part=contentDetails",
           "videos"
         );
       }
       return await request(
-        `id=${item.id.videoId}`,
+        `&id=${item.id.videoId}`,
         "part=contentDetails",
         "videos"
       );
@@ -34,7 +34,7 @@ export async function searchVideos(video, isVideo = true) {
 
   if (!isVideo) {
     response = video.map(
-      async (item) => await request(`&id${item}`, "part=snippet", "search")
+      async (item) => await request(`&id=${item}`, "part=snippet", "videos")
     );
     return await Promise.all(response);
   }

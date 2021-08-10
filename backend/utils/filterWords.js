@@ -14,15 +14,12 @@ export default function filterWords(words = []) {
 
   const mostWord = Object.entries(counts);
 
-  let numberMostWord = Object.values(counts);
-
-  numberMostWord = Math.max(...numberMostWord);
-
-  const filterArray = mostWord.sort((a, b) => {
-    if (a[1] > b[1]) return -1;
-    if (a[1] < b[1]) return 1;
-    return 0;
-  });
-
+  const filterArray = mostWord
+    .filter((word) => word[0] !== "")
+    .sort((a, b) => {
+      if (a[1] > b[1]) return -1;
+      if (a[1] < b[1]) return 1;
+      return 0;
+    });
   return filterArray.splice(0, 5);
 }
