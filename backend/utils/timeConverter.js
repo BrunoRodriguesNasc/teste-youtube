@@ -6,9 +6,6 @@ export default function timeConverter(time = []) {
   let parseMinutes = 0;
   let convertWithRegex = "";
   const timeConverted = time.map((t) => {
-    if (time.length == 0) {
-      return;
-    }
     hour = t.split("H").length > 1 ? t.split("H") : "00";
     minutes = t.split("M").length > 1 ? t.split("M") : "00";
     allTime = `${hour[0]}:${minutes[0]}:${minutes[1]}`;

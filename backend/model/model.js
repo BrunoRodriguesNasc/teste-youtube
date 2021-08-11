@@ -43,11 +43,12 @@ export async function searchVideos(video, isVideo = true) {
   return response;
 }
 
-export async function getAllInfoVideos(videoId) {
-  const infoVideos = await Promise.all(videoId);
-  const itemsVideos = infoVideos.map((item) => {
-    return item.items;
+export async function getAllInfoVideos(videoId = []) {
+  const videosToSearch = videoId.map((id) => {
+    return request(`&id=${id}`, "part=contentDetails", "videos");
   });
-  return itemsVideos;
+  const infoVideos = await Promise.all(videosToSearch);
+
+  return infoVideos;
 }
 // https://youtube.googleapis.com/youtube/v3/videos?part=contentDetails&id=L6iiw88JUOQ&maxResults=200&key=[YOUR_API_KEY] HTTP/1.1

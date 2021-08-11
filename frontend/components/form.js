@@ -10,6 +10,6 @@ export default async function (getVideo) {
       allDays.push(document.querySelector(`#day-${i}`).value);
     }
     // await searchVideos(video.value);
-    getVideo(video.value, allDays);
+    getVideo(video.value,allDays);
   });
 }

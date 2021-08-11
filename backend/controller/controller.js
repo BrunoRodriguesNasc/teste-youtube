@@ -16,37 +16,55 @@ export function init() {
 async function getVideos(video, allDays) {
   const allVideos = await searchVideos(video);
   const videosID = await getAllVideosById(allVideos);
-  const infoVideos = videosID.map((id) => {
-    if (id.items.length == 0) {
-      return "";
-    }
-    return id.items[0].id;
-  });
-  const words = await searchVideos(infoVideos, false);
-  const itens = await getAllInfoVideos(videosID);
+  const infoVideos = videosID
+    .filter((ids) => ids.items != "")
+    .map((id) => {
+      return id.items[0].id;
+    });
 
-  const convertedTime = itens.map((duration) => {
-    let content = [];
-    content.push(duration[0] ? duration[0].contentDetails.duration : []);
+  await getAllWordsFromVideos(infoVideos, false);
 
-    return timeConverter(content);
-  });
+  return await getAllInfoVideosByIdAndDays(infoVideos, allDays);
+}
 
-  const titleAndDescription = words.map((item) => {
-    return [item.items[0].snippet.title, item.items[0].snippet.description];
-  });
+async function getAllInfoVideosByIdAndDays(videoId, allDays) {
+  const itens = await getAllInfoVideos(videoId);  
+  return await convertTimeFromVideo(itens, allDays);
+}
 
-  setMostWord(titleAndDescription);
-  return setTimeTotal(convertedTime, allDays);
+async function getAllWordsFromVideos(infoVideos, isVideo) {
+  const words = await searchVideos(infoVideos, isVideo);
+  return await getTitleAndDescription(words);
 }
 
 async function setTimeTotal(convertedTime, days) {
   const filterDuration = filterVideos(convertedTime, days);
 
-  const totalDias = await calTime(filterDuration, days);
-  durationVideoInfo(totalDias);
+  console.log(filterDuration);
+  const totalDias =  await calTime(filterDuration, days);
+  return durationVideoInfo(totalDias);
 }
 
 async function setMostWord(words) {
   mostWord(filterWords(words));
 }
+
+async function getTitleAndDescription(words) {
+  const titleAndDescription = words
+    .filter((itens) => itens.items != "")
+    .map((item) => {
+      return [item.items[0].snippet.title, item.items[0].snippet.description];
+    });
+  return setMostWord(titleAndDescription);
+}
+
+function convertTimeFromVideo(videosDuration,days) {
+
+  const durations = videosDuration.filter(duration => duration.items[0] !== undefined).map((duration) => {
+    return duration.items[0].contentDetails.duration;
+  });
+  const durationsConverter = timeConverter(durations);
+
+  return setTimeTotal(durationsConverter,days);
+}
+
