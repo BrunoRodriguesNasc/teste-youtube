@@ -2,11 +2,11 @@ import inicialize from "../../frontend/components/form.js";
 import { searchVideos } from "../model/model.js";
 import { getAllVideosById } from "../model/model.js";
 import { getAllInfoVideos } from "../model/model.js";
-import timeConverter from "../utils/timeConverter.js";
-import calTime from "../utils/calTime.js";
+import convertTime from "../utils/convertTime.js";
+import calculateTime from "../utils/calculateTime.js";
 import durationVideoInfo from "../../frontend/components/durationVideo.js";
 import filterVideos from "../utils/filterVideos.js";
-import filterWords from "../utils/filterWords.js";
+import processWords from "../utils/processWords.js";
 import mostWord from "../../frontend/components/mostWords.js";
 
 export function init() {
@@ -16,55 +16,34 @@ export function init() {
 async function getVideos(video, allDays) {
   const allVideos = await searchVideos(video);
   const videosID = await getAllVideosById(allVideos);
-  const infoVideos = videosID
-    .filter((ids) => ids.items != "")
-    .map((id) => {
-      return id.items[0].id;
-    });
+  await getAllWordsFromVideos(videosID, false);
 
-  await getAllWordsFromVideos(infoVideos, false);
-
-  return await getAllInfoVideosByIdAndDays(infoVideos, allDays);
+  return await getAllInfoVideosByIdAndDays(videosID, allDays);
 }
 
 async function getAllInfoVideosByIdAndDays(videoId, allDays) {
-  const itens = await getAllInfoVideos(videoId);  
-  return await convertTimeFromVideo(itens, allDays);
+  return await convertTimeFromVideo(await getAllInfoVideos(videoId), allDays);
 }
 
 async function getAllWordsFromVideos(infoVideos, isVideo) {
-  const words = await searchVideos(infoVideos, isVideo);
-  return await getTitleAndDescription(words);
+  return await getTitleAndDescription(await searchVideos(infoVideos, isVideo));
 }
 
 async function setTimeTotal(convertedTime, days) {
-  const filterDuration = filterVideos(convertedTime, days);
-
-  console.log(filterDuration);
-  const totalDias =  await calTime(filterDuration, days);
-  return durationVideoInfo(totalDias);
+  const filteredVideos = filterVideos(convertedTime, days);
+  const time = calculateTime(filteredVideos, days);
+  return durationVideoInfo(time);
 }
 
 async function setMostWord(words) {
-  mostWord(filterWords(words));
+  return mostWord(processWords(words));
 }
 
 async function getTitleAndDescription(words) {
-  const titleAndDescription = words
-    .filter((itens) => itens.items != "")
-    .map((item) => {
-      return [item.items[0].snippet.title, item.items[0].snippet.description];
-    });
-  return setMostWord(titleAndDescription);
+  return setMostWord(words);
 }
 
-function convertTimeFromVideo(videosDuration,days) {
-
-  const durations = videosDuration.filter(duration => duration.items[0] !== undefined).map((duration) => {
-    return duration.items[0].contentDetails.duration;
-  });
-  const durationsConverter = timeConverter(durations);
-
-  return setTimeTotal(durationsConverter,days);
+async function convertTimeFromVideo(videosDuration, days) {
+  const durations = await convertTime(videosDuration);
+  return setTimeTotal(durations, days);
 }
-

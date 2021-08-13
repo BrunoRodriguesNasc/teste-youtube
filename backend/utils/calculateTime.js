@@ -1,4 +1,4 @@
-export default async function calTime(duration, days = []) {
+export default function calculateTime(duration, days = []) {
   if (duration == [] || days == []) {
     return [];
   }

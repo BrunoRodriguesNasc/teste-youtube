@@ -1,6 +1,6 @@
 async function request(params, part, type) {
   let response = await fetch(
-    `https://www.googleapis.com/youtube/v3/${type}?${part}&key=AIzaSyBFCFt_E5s7JM1JCFSoGgTq7Mm-1EJ41E0${params}&maxResult=200`
+    `https://www.googleapis.com/youtube/v3/${type}?${part}&key=AIzaSyBFCFt_E5s7JM1JCFSoGgTq7Mm-1EJ41E0${params}&maxResults=200`
   );
   return response.json();
 }
@@ -23,7 +23,11 @@ export async function getAllVideosById(videos) {
     });
 
     const videosPerId = await Promise.all(allVideosId);
-    return videosPerId;
+    return videosPerId
+      .filter((ids) => ids.items != "")
+      .map((id) => {
+        return id.items[0].id;
+      });
   } catch (error) {
     console.log(error);
   }
