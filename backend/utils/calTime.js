@@ -7,8 +7,6 @@ export default async function calTime(duration, days = []) {
   let index = 0;
   let arr = [];
 
-  console.log(duration);
-  console.log(days);
   for (let i = 0; i < days.length; ) {
     if (index > duration.length - 1) {
       break;

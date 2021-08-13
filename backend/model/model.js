@@ -1,6 +1,6 @@
 async function request(params, part, type) {
   let response = await fetch(
-    `https://www.googleapis.com/youtube/v3/${type}?${part}&key=AIzaSyBFCFt_E5s7JM1JCFSoGgTq7Mm-1EJ41E0${params}`
+    `https://www.googleapis.com/youtube/v3/${type}?${part}&key=AIzaSyBFCFt_E5s7JM1JCFSoGgTq7Mm-1EJ41E0${params}&maxResult=200`
   );
   return response.json();
 }
