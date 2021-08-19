@@ -1,19 +1,6 @@
 export default function processWords(words = []) {
   return filterAndOrderWords(
-    transformToArray(
-      countTotalWords(
-        wordsToArray(
-          words
-            .filter((itens) => itens.items != "")
-            .map((item) => {
-              return [
-                item.items[0].snippet.title,
-                item.items[0].snippet.description,
-              ];
-            })
-        )
-      )
-    )
+    transformToArray(countTotalWords(wordsToArray(words)))
   );
 }
 

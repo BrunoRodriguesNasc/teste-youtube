@@ -1,10 +1,5 @@
 export default async function convertTime(times = []) {
-  const duration = times
-    .filter((duration) => duration.items[0] !== undefined)
-    .map((duration) => {
-      return duration.items[0].contentDetails.duration;
-    });
-  return convertTimeToRegex(duration);
+  return convertTimeToRegex(times);
 }
 
 function convertTimeToRegex(times) {
@@ -30,6 +25,7 @@ function timeParse(times) {
     hour = time.split(":");
     parseHours = parseInt(hour[0]);
     parseMinutes = parseInt(hour[1]);
-    return 60 * parseHours + parseMinutes;
+
+    return (60 * parseHours) + parseMinutes;
   });
 }

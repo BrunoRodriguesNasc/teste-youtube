@@ -1,4 +1,5 @@
 export default function (words = []) {
+
   const containerText = document.body.querySelector(".container-text");
   containerText.textContent = "";
   words.flatMap((wordsAndNumber) => {

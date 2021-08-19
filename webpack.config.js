@@ -6,11 +6,13 @@ import path from "path";
 const __dirname = path.resolve();
 export default {
   entry: {
-    index: ["./src/index.js", "babel-polyfill"],
+    index: "./src/index.js",
     controller: "./backend/controller/controller.js",
     model: "./backend/model/model.js",
     component: "./frontend/components/form.js",
     processWords: "./backend/utils/processWords.js",
+    utils:["./backend/utils/convertTime.js"],
+    calculateTime:"./backend/utils/calculateTime.js",
   },
   output: {
     path: __dirname + "/dist",

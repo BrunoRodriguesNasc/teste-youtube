@@ -36,7 +36,12 @@ async function setTimeTotal(convertedTime, days) {
 }
 
 async function setMostWord(words) {
-  return mostWord(processWords(words));
+  const wordsFilter = words
+    .filter((itens) => itens.items != "")
+    .map((item) => {
+      return [item.items[0].snippet.title, item.items[0].snippet.description];
+    });
+  return mostWord(processWords(wordsFilter));
 }
 
 async function getTitleAndDescription(words) {
@@ -44,6 +49,12 @@ async function getTitleAndDescription(words) {
 }
 
 async function convertTimeFromVideo(videosDuration, days) {
-  const durations = await convertTime(videosDuration);
+  const duration = videosDuration
+    .filter((duration) => duration.items[0] !== undefined)
+    .map((duration) => {
+      return duration.items[0].contentDetails.duration;
+    });
+
+  const durations = await convertTime(duration);
   return setTimeTotal(durations, days);
 }
