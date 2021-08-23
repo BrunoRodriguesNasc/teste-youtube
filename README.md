@@ -6,7 +6,7 @@ Esse projeto mede quanto tempo você leva para ver uma quantidade de até 200 vi
 
 - Javascript - Código em geral
 - HTML
-- CSS3 PURO - Prefiro usar ele sem nenhuma ferramenta ou framework porque me sinto que fico mais livre.
+- CSS3 PURO - Prefiro usar ele sem nenhuma ferramenta ou framework porque  sinto que fico mais livre.
 
 ## Iniciando o projeto
 
