@@ -4,9 +4,9 @@ Esse projeto mede quanto tempo você leva para ver uma quantidade de até 200 vi
 
 ## Tecnologias usadas
 
-Javascript - Código em geral
-HTML
-CSS3 PURO - Prefiro usar ele sem nenhuma ferramenta ou framework porque me sinto que fico mais livre.
+- Javascript - Código em geral
+- HTML
+- CSS3 PURO - Prefiro usar ele sem nenhuma ferramenta ou framework porque me sinto que fico mais livre.
 
 ## Iniciando o projeto
 
