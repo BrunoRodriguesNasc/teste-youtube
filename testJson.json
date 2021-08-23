@@ -1,0 +1,182 @@
+{
+  "kind": "youtube#searchListResponse",
+  "etag": "YXGc3y3szoptvTk82AWxPkfxTbE",
+  "nextPageToken": "CAUQAA",
+  "regionCode": "BR",
+  "pageInfo": {
+    "totalResults": 64612,
+    "resultsPerPage": 5
+  },
+  "items": [
+    {
+      "kind": "youtube#searchResult",
+      "etag": "oYHNSUQjHSzfSL5AXkFjuGjkmg0",
+      "id": {
+        "kind": "youtube#playlist",
+        "playlistId": "PLX6KVKvrKlt3qEYNUs51heDdLE1uZVFOr"
+      },
+      "snippet": {
+        "publishedAt": "2020-02-28T16:37:49Z",
+        "channelId": "UCuomqij6IO35iIXW06wyRRA",
+        "title": "Shrek 2 O Filmes Completo Animação Dublados",
+        "description": "",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/rPk9IllQIvw/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/rPk9IllQIvw/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/rPk9IllQIvw/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "AnimeMarioBrothers / / Team Splatsquad Productions",
+        "liveBroadcastContent": "none",
+        "publishTime": "2020-02-28T16:37:49Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "gJauA33CsaAHmTcChtmaoeCFaak",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "K6PVbwjoCfQ"
+      },
+      "snippet": {
+        "publishedAt": "2015-08-18T00:46:46Z",
+        "channelId": "UChQ365Ixkq7tJ-a1FydoKCQ",
+        "title": "Shrek 2 ---- Lançamento 2015 animação",
+        "description": "shrek filmes completos em francês, shrek a l ecole, shrek youtube, shrek 4 film, shrek peluche, shrek piscine, shrek fait du poney, shrek ses amis, shrek livre, ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/K6PVbwjoCfQ/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/K6PVbwjoCfQ/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/K6PVbwjoCfQ/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "macedonia",
+        "liveBroadcastContent": "none",
+        "publishTime": "2015-08-18T00:46:46Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "KLO7RK87olthOVVErf3eHaougeE",
+      "id": {
+        "kind": "youtube#playlist",
+        "playlistId": "PLnzPn_7ctp-r1kOmwZE84VvFScMfSMJuG"
+      },
+      "snippet": {
+        "publishedAt": "2021-06-05T19:24:02Z",
+        "channelId": "UCWK2VUBtpFlQXOZWjCMoT_A",
+        "title": "Shrek 2",
+        "description": "",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/hfHDtGsczgQ/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/hfHDtGsczgQ/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/hfHDtGsczgQ/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "Arleth Morrison",
+        "liveBroadcastContent": "none",
+        "publishTime": "2021-06-05T19:24:02Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "pThbD8hxVQpehAx3Km8MvMxKiy0",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "eHK3A9ANE3Q"
+      },
+      "snippet": {
+        "publishedAt": "2020-09-13T02:12:29Z",
+        "channelId": "UCFcfR-YaKQapeCr6AWjQHiw",
+        "title": "Shrek 2 - full movie - English - funny - animated movies",
+        "description": "the second one.",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/eHK3A9ANE3Q/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/eHK3A9ANE3Q/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/eHK3A9ANE3Q/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "Mnm Man",
+        "liveBroadcastContent": "none",
+        "publishTime": "2020-09-13T02:12:29Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "kdBCupzg83feo5teeBAvS70qyRk",
+      "id": {
+        "kind": "youtube#playlist",
+        "playlistId": "PLWvUJ_Lkdl-VZUpn79C4ycwVzHgI4uHkA"
+      },
+      "snippet": {
+        "publishedAt": "2018-09-29T19:02:57Z",
+        "channelId": "UCE3DSuVjMajOdgo4s7cbJlA",
+        "title": "Shrek 2",
+        "description": "",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/rPk9IllQIvw/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/rPk9IllQIvw/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/rPk9IllQIvw/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "Baú de cenas",
+        "liveBroadcastContent": "none",
+        "publishTime": "2018-09-29T19:02:57Z"
+      }
+    }
+  ]
+}

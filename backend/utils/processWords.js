@@ -1,10 +1,11 @@
 export default function processWords(words = []) {
-  return filterAndOrderWords(
-    transformToArray(countTotalWords(wordsToArray(words)))
-  );
+  const filterWords = wordsFilter(words);
+  const countTotal = countTotalWords(filterWords);
+  const transformedWords = transformToArray(countTotal);
+  return filterAndOrderWords(transformedWords);
 }
 
-function wordsToArray(words) {
+function wordsFilter(words) {
   const PONCTUATION_REGEX = /([.,\/#!$%\^&\*;:{}=\-_`~()])/g;
   return words.toString().replace(PONCTUATION_REGEX, "");
 }

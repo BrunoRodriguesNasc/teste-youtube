@@ -16,17 +16,25 @@ export function init() {
 async function getVideos(video, allDays) {
   const allVideos = await searchVideos(video);
   const videosID = await getAllVideosById(allVideos);
-  await getAllWordsFromVideos(videosID, false);
+  const ids = videosID
+    .filter((ids) => ids.items != "")
+    .map((id) => {
+      return id.items[0].id;
+    });
+  console.log(ids);
+  await getAllWordsFromVideos(ids, false);
 
   return await getAllInfoVideosByIdAndDays(videosID, allDays);
 }
 
 async function getAllInfoVideosByIdAndDays(videoId, allDays) {
-  return await convertTimeFromVideo(await getAllInfoVideos(videoId), allDays);
+  const allVideosById = await getAllInfoVideos(videoId);
+  return await convertTimeFromVideo(allVideosById, allDays);
 }
 
 async function getAllWordsFromVideos(infoVideos, isVideo) {
-  return await getTitleAndDescription(await searchVideos(infoVideos, isVideo));
+  const allWords = await searchVideos(infoVideos, isVideo);
+  return await getTitleAndDescription(allWords);
 }
 
 async function setTimeTotal(convertedTime, days) {

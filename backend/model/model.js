@@ -1,6 +1,6 @@
-async function request(params, part, type) {
+async function request(params) {
   let response = await fetch(
-    `https://www.googleapis.com/youtube/v3/${type}?${part}&key=AIzaSyBFCFt_E5s7JM1JCFSoGgTq7Mm-1EJ41E0${params}&maxResults=200`
+    `https://www.googleapis.com/youtube/v3/${params}&key=AIzaSyBFCFt_E5s7JM1JCFSoGgTq7Mm-1EJ41E0&maxResults=5`
   );
   return response.json();
 }
@@ -10,24 +10,15 @@ export async function getAllVideosById(videos) {
     const allVideosId = videos.items.map(async (item) => {
       if (!item.id.videoId) {
         return await request(
-          `&id=${item.id.channelId}`,
-          "part=contentDetails",
-          "videos"
+          `videos?&id=${item.id.channelId}&part=contentDetails`
         );
       }
-      return await request(
-        `&id=${item.id.videoId}`,
-        "part=contentDetails",
-        "videos"
-      );
+      return await request(`videos?&id=${item.id.videoId}&part=contentDetails`);
     });
 
     const videosPerId = await Promise.all(allVideosId);
-    return videosPerId
-      .filter((ids) => ids.items != "")
-      .map((id) => {
-        return id.items[0].id;
-      });
+
+    return videosPerId;
   } catch (error) {
     console.log(error);
   }
@@ -38,21 +29,20 @@ export async function searchVideos(video, isVideo = true) {
 
   if (!isVideo) {
     response = video.map(
-      async (item) => await request(`&id=${item}`, "part=snippet", "videos")
+      async (item) => await request(`videos?id=${item}&part=snippet `)
     );
     return await Promise.all(response);
   }
 
-  response = await request(`&q=${video}`, "part=snippet", "search");
+  response = await request(`search?part=snippet&q=${video}`);
   return response;
 }
 
 export async function getAllInfoVideos(videoId = []) {
   const videosToSearch = videoId.map((id) => {
-    return request(`&id=${id}`, "part=contentDetails", "videos");
+    return request(`videos?&id=${id}&part=contentDetails`);
   });
   const infoVideos = await Promise.all(videosToSearch);
 
   return infoVideos;
 }
-// https://youtube.googleapis.com/youtube/v3/videos?part=contentDetails&id=L6iiw88JUOQ&maxResults=200&key=[YOUR_API_KEY] HTTP/1.1
