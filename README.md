@@ -24,6 +24,11 @@ logo depois disso você pode iniciar com um
 NPM START
 ```
 
+e acessar na porta
+```
+http://localhost:8080/
+```
+
 e iniciará o programa.
 
 ## Testes
