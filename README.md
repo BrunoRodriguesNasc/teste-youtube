@@ -10,7 +10,13 @@ Esse projeto mede quanto tempo você leva para ver uma quantidade de até 200 vi
 
 ## Iniciando o projeto
 
-Para baixar todas as depêndencias é necessário começar com um
+Fazer um git clone da URL
+```
+https://github.com/BrunoRodriguesNasc/teste-youtube.git
+```
+entrar na pasta teste-youtube 
+
+baixar todas as depêndencias é necessário começar com um
 
 ```
 NPM I
@@ -24,7 +30,7 @@ logo depois disso você pode iniciar com um
 NPM START
 ```
 
-e acessar na porta
+e acessar na URL
 ```
 http://localhost:8080/
 ```
